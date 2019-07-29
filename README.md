@@ -29,11 +29,11 @@ $ open mulight.xcodeproj
 - MVVM-Coordinator
 
 ### To Do List
--rewrite UI testing with Quick  Nimble
--add service testing
--add more base and utitl code
--add list paging function
--add data caching strategy
--excellent UI UX
+- rewrite UI testing with Quick  Nimble
+- add service testing
+- add more base and utitl code
+- add list paging function
+- add data caching strategy
+- excellent UI UX
 ...
 
