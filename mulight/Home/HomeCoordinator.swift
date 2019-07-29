@@ -21,13 +21,18 @@ class HomeCoordinator: NSObject, Coordinatable {
     func start() {
         let viewModel: HomeViewable = HomeViewModel()
         let viewController: HomeViewPresentable = HomeViewController(viewModel)
-        viewController.takePhotoActionObservable.subscribe { (event) in
-            //ToDo - push to take photo
-        }.disposed(by: disposeBag)
+        viewController.takePhotoActionObservable.subscribe(onNext: { (imagePicker) in
+            self.router.present(imagePicker, animated: true)
+        }).disposed(by: disposeBag)
         
         viewController.photoListActionObservable.subscribe { (event) in
             //ToDo - push to photo list
         }.disposed(by: disposeBag)
+        
+        viewController.nameInputPopupEventObservable.subscribe(onNext: { (alertController) in
+            self.router.present(alertController, animated: true)
+        }).disposed(by: disposeBag)
+
         router.push(viewController, animated: true, onPop: nil)
     }
 }

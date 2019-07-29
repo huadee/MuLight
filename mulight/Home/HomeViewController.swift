@@ -12,8 +12,9 @@ import RxSwift
 import RxCocoa
 
 protocol HomeViewPresentable: ViewPresentable {
-    var takePhotoActionObservable: ReplaySubject<Void> { get }
+    var takePhotoActionObservable: ReplaySubject<UIViewController> { get }
     var photoListActionObservable: ReplaySubject<Void> { get }
+    var nameInputPopupEventObservable: ReplaySubject<UIViewController> { get }
 }
 
 class HomeViewController: UIViewController, HomeViewPresentable {
@@ -65,9 +66,13 @@ class HomeViewController: UIViewController, HomeViewPresentable {
     }
     
     func setupBinding() {
-        takePhotoButton.rx.tap.bind(to: takePhotoActionObservable).disposed(by: disposeBag)
+        let _ = takePhotoButton.rx.tap.subscribe { (_) in
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera
+            self.takePhotoActionObservable.onNext(imagePicker)
+        }
         photoListButton.rx.tap.bind(to: photoListActionObservable).disposed(by: disposeBag)
-        //ToDo - may need data binding later based on design
     }
 
     func generateTapButton(_ title: String) -> UIButton {
@@ -80,7 +85,41 @@ class HomeViewController: UIViewController, HomeViewPresentable {
         return button
     }
     
+    func popupNameInput() -> Observable<String> {
+        let nameSubject = PublishSubject<String>()
+        
+        let alert = UIAlertController(title: "Save Image", message: "Please enter a image name", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "name"
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            guard let textField = alert?.textFields?[0], let name = textField.text else {
+                nameSubject.onError(CustomError.defaultError("no intput"))
+                return
+            }
+            nameSubject.onNext(name)
+            nameSubject.onCompleted()
+        }))
+        nameInputPopupEventObservable.onNext(alert)
+        return nameSubject
+    }
+    
     // MARK: - HomeViewPresentable
-    var takePhotoActionObservable: ReplaySubject<Void> = ReplaySubject.create(bufferSize: 1)
+    var takePhotoActionObservable: ReplaySubject<UIViewController> = ReplaySubject.create(bufferSize: 1)
     var photoListActionObservable: ReplaySubject<Void> = ReplaySubject.create(bufferSize: 1)
+    var nameInputPopupEventObservable: ReplaySubject<UIViewController> = ReplaySubject.create(bufferSize: 1)
+}
+
+// MARK: - UIImagePickerController Delegate
+extension HomeViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true) {
+            self.popupNameInput().subscribe(onNext: { (name) in
+                guard let image = info[.originalImage] as? UIImage, let data = image.pngData() else { return }
+                self.viewModel.saveImage(data, name).subscribe(onNext: { (_) in
+                    // Todo - may need some UI notice
+                }).disposed(by: self.disposeBag)
+            }).disposed(by: self.disposeBag)
+        }
+    }
 }

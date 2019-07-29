@@ -34,6 +34,10 @@ extension Router: Routable {
         }
         navigationController.pushViewController(controller, animated: animated)
     }
+    
+    public func present(_ module: ViewPresentable, animated: Bool) {
+        navigationController.present(module.toPresentable(), animated: animated, completion: nil)
+    }
 }
 
 extension Router: UINavigationControllerDelegate {

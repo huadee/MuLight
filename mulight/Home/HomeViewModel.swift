@@ -7,16 +7,24 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol HomeViewable: class {
-    //ToDo - may need later based on design
+    func saveImage(_ image: Data, _ name: String) -> Observable<Bool>
 }
 
 class HomeViewModel: NSObject {
-    //ToDo - may need later based on design
+    private let disposeBag = DisposeBag()
+    private let imageService: ImageServiceable
+    
+    init(_ imageService: ImageServiceable = ImageService()) {
+        self.imageService = imageService
+        super.init()
+    }    
 }
 
-
 extension HomeViewModel: HomeViewable {
-    //ToDo - may need later based on design
+    func saveImage(_ image: Data, _ name: String) -> Observable<Bool> {
+        return imageService.save(image, name, Date().timeIntervalSince1970)
+    }
 }

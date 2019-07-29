@@ -11,4 +11,5 @@ import UIKit
 
 public protocol Routable: class {
     func push(_ module: ViewPresentable, animated: Bool, onPop:(() -> Void)?)
+    func present(_ module: ViewPresentable, animated: Bool)
 }

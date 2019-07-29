@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import RxSwift
 @testable import mulight
 
 class MockHomeViewable: HomeViewable {
-    //ToDo - may need later based on design
+    func saveImage(_ image: Data, _ name: String) -> Observable<Bool> {
+        return Observable.just(true)
+    }
 }

@@ -21,6 +21,8 @@
 		9D1AC8B822ECBDCD00DB9F66 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1AC8AE22ECB46900DB9F66 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9D1AC8BA22ECBEF400DB9F66 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1AC8AD22ECB46900DB9F66 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9D1AC8BB22ECBEF400DB9F66 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1AC8AE22ECB46900DB9F66 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9D772ADF22EE7FCB006809AB /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D772ADE22EE7FCB006809AB /* ImageService.swift */; };
+		9D772AE122EE801D006809AB /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D772AE022EE801D006809AB /* ImageModel.swift */; };
 		9D7CB53122EDCD1B00A34141 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7CB53022EDCD1B00A34141 /* HomeCoordinator.swift */; };
 		9D7CB53322EDCD2B00A34141 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7CB53222EDCD2B00A34141 /* HomeViewModel.swift */; };
 		9D7CB53522EDCD3A00A34141 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7CB53422EDCD3A00A34141 /* HomeViewController.swift */; };
@@ -38,6 +40,7 @@
 		9D7CB56122EE0CD300A34141 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1AC8AD22ECB46900DB9F66 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9D7CB56222EE0CD300A34141 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1AC8AE22ECB46900DB9F66 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9DA7BDBA22EE11D700C57606 /* MockHomeViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA7BDB922EE11D700C57606 /* MockHomeViewable.swift */; };
+		9DAD960522EE9B1F00291D67 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAD960422EE9B1F00291D67 /* CustomError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +115,8 @@
 		9D1AC8A022EC42DD00DB9F66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D1AC8AD22ECB46900DB9F66 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		9D1AC8AE22ECB46900DB9F66 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		9D772ADE22EE7FCB006809AB /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		9D772AE022EE801D006809AB /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		9D7CB53022EDCD1B00A34141 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		9D7CB53222EDCD2B00A34141 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9D7CB53422EDCD3A00A34141 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +127,7 @@
 		9D7CB54422EE088800A34141 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		9D7CB54622EE0A0600A34141 /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		9DA7BDB922EE11D700C57606 /* MockHomeViewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeViewable.swift; sourceTree = "<group>"; };
+		9DAD960422EE9B1F00291D67 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,8 +188,10 @@
 		9D1AC87D22EC42DC00DB9F66 /* mulight */ = {
 			isa = PBXGroup;
 			children = (
+				9D772ADD22EE7F3A006809AB /* Service */,
 				9D7CB53C22EE072500A34141 /* Base */,
 				9D7CB52F22EDCC2E00A34141 /* Home */,
+				9D1FE91422EF184100D270CB /* List */,
 				9D1AC87E22EC42DC00DB9F66 /* AppDelegate.swift */,
 				9D7CB54422EE088800A34141 /* Router.swift */,
 				9D1AC88522EC42DD00DB9F66 /* Assets.xcassets */,
@@ -222,6 +230,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9D1FE91422EF184100D270CB /* List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		9D772ADD22EE7F3A006809AB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9D772AE022EE801D006809AB /* ImageModel.swift */,
+				9D772ADE22EE7FCB006809AB /* ImageService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		9D7CB52F22EDCC2E00A34141 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				9D7CB53D22EE078B00A34141 /* Protocol */,
+				9DAD960422EE9B1F00291D67 /* CustomError.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -413,10 +438,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D7CB54522EE088800A34141 /* Router.swift in Sources */,
+				9D772AE122EE801D006809AB /* ImageModel.swift in Sources */,
 				9D1AC87F22EC42DC00DB9F66 /* AppDelegate.swift in Sources */,
+				9D772ADF22EE7FCB006809AB /* ImageService.swift in Sources */,
 				9D7CB53322EDCD2B00A34141 /* HomeViewModel.swift in Sources */,
 				9D7CB53522EDCD3A00A34141 /* HomeViewController.swift in Sources */,
 				9D7CB53122EDCD1B00A34141 /* HomeCoordinator.swift in Sources */,
+				9DAD960522EE9B1F00291D67 /* CustomError.swift in Sources */,
 				9D7CB54122EE079B00A34141 /* Presentable.swift in Sources */,
 				9D7CB54222EE079B00A34141 /* Coordinatable.swift in Sources */,
 				9D7CB54322EE079B00A34141 /* Routable.swift in Sources */,
@@ -589,6 +617,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4QZXZ274HT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -612,6 +641,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4QZXZ274HT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
