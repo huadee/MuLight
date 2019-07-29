@@ -8,16 +8,19 @@
 
 import Foundation
 import RxSwift
+import CryptoSwift
 
 public protocol ImageServiceable {
     func save(_ image: Data, _ name: String, _ time: Double) -> Observable<Bool>
-    func loadImage(_ path: URL) -> Observable<Data>
+    func loadImage(_ path: String) -> Observable<Data>
     func fetchImageList() -> Observable<ImageList>
 }
 
 class ImageService: NSObject {
     private let disposeBag = DisposeBag()
     private let fileManager: FileManager
+    
+    static let sharedInstance = ImageService()
     
     private lazy var imageJsonFilePath: String = {
         guard let dir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .allDomainsMask, true).first else {
@@ -44,7 +47,7 @@ class ImageService: NSObject {
         let checkJsonFileObservable = checkImageJsonFile(path)
         let fetchImageListObservable = fetchImageList()
         Observable.zip(checkJsonFileObservable, fetchImageListObservable)
-            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .subscribe(onNext: {
                 do {
                     var list = $1.data
@@ -62,7 +65,7 @@ class ImageService: NSObject {
                     result.onCompleted()
                 }
             }).disposed(by: disposeBag)
-        return result.asObserver().observeOn(SerialDispatchQueueScheduler(qos: .background))
+        return result.asObserver().subscribeOn(SerialDispatchQueueScheduler(qos: .background))
     }
     
     func generateImageFilePath(_ path: String, _ name: String) -> String {
@@ -84,7 +87,7 @@ class ImageService: NSObject {
             observer.onNext(true)
             observer.onCompleted()
             return Disposables.create()
-        }).observeOn(SerialDispatchQueueScheduler(qos: .background))
+        }).subscribeOn(SerialDispatchQueueScheduler(qos: .background))
     }
     
     func checkImageDirectory(_ path: String) -> Observable<Bool> {
@@ -106,7 +109,7 @@ class ImageService: NSObject {
             observer.onNext(true)
             observer.onCompleted()
             return Disposables.create()
-        }).observeOn(SerialDispatchQueueScheduler(qos: .background))
+        }).subscribeOn(SerialDispatchQueueScheduler(qos: .background))
     }
     
     func checkImageJsonFile(_ path: String) -> Observable<Bool> {
@@ -120,20 +123,20 @@ class ImageService: NSObject {
                 observer.onNext(true)
                 observer.onCompleted()
                 return Disposables.create()
-            }).observeOn(SerialDispatchQueueScheduler(qos: .background))
+            }).subscribeOn(SerialDispatchQueueScheduler(qos: .background))
         }
         return Observable.create({ (observer) -> Disposable in
             observer.onNext(true)
             observer.onCompleted()
             return Disposables.create()
-        }).observeOn(SerialDispatchQueueScheduler(qos: .background))
+        }).subscribeOn(SerialDispatchQueueScheduler(qos: .background))
     }
 }
 
 extension ImageService: ImageServiceable {
     func fetchImageList() -> Observable<ImageList> {
         guard let url = URL(string: "file://" + self.imageJsonFilePath) else {
-            return Observable.just(ImageList(data: [])).observeOn(SerialDispatchQueueScheduler(qos: .background))
+            return Observable.just(ImageList(data: [])).subscribeOn(SerialDispatchQueueScheduler(qos: .background))
         }
         return Observable.create({ (observer) -> Disposable in
             do {
@@ -147,28 +150,32 @@ extension ImageService: ImageServiceable {
                 observer.onCompleted()
             }
             return Disposables.create()
-        }).observeOn(SerialDispatchQueueScheduler(qos: .background))
+        }).subscribeOn(SerialDispatchQueueScheduler(qos: .background))
     }
     
-    func loadImage(_ path: URL) -> Observable<Data> {
+    func loadImage(_ path: String) -> Observable<Data> {
         return Observable.create({ (observer) -> Disposable in
             do {
-                let data = try Data(contentsOf: path)
+                guard let url = URL(string: self.generateImageFilePath( "file://" + self.imageDirectoryPath, path)) else {
+                    observer.onError(CustomError.defaultError("something wrong"))
+                    return Disposables.create()
+                }
+                let data = try Data(contentsOf: url)
                 observer.onNext(data)
                 observer.onCompleted()
             } catch {
                 observer.onError(CustomError.defaultError("something wrong"))
             }
             return Disposables.create()
-        }).observeOn(SerialDispatchQueueScheduler(qos: .background))
+        }).subscribeOn(SerialDispatchQueueScheduler(qos: .background))
     }
     
     func save(_ image: Data, _ name: String, _ time: Double) -> Observable<Bool> {
         let result: ReplaySubject<Bool> = ReplaySubject.create(bufferSize: 1)
         
-        let imageFilePath = generateImageFilePath(imageDirectoryPath, name + ".png")
+        let imageFilePath = (name + "\(time)").md5() + ".png"
         let checkObservable = checkImageDirectory(imageDirectoryPath)
-        let createFileObservable = createFile(imageFilePath, image)
+        let createFileObservable = createFile(generateImageFilePath(imageDirectoryPath, (name + "\(time)").md5() + ".png"), image)
         let imageModel = ImageModel(name: name, filePath: imageFilePath, createTime: time)
         let addImageJsonObservable = addImageJson(imageJsonFilePath, imageModel)
         
@@ -178,6 +185,6 @@ extension ImageService: ImageServiceable {
                 result.onNext(result1 && result2 && result3)
                 result.onCompleted()
             }).disposed(by: disposeBag)
-        return result.asObserver().observeOn(SerialDispatchQueueScheduler(qos: .background))
+        return result.asObserver().subscribeOn(SerialDispatchQueueScheduler(qos: .background))
     }
 }

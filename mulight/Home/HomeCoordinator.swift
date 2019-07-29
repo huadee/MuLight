@@ -10,8 +10,10 @@ import Foundation
 import RxSwift
 
 class HomeCoordinator: NSObject, Coordinatable {
+    
     private let disposeBag = DisposeBag()
     private let router: Routable
+    var childCoordinators: [Coordinatable] = []
     
     init(_ router: Routable) {
         self.router = router
@@ -26,7 +28,9 @@ class HomeCoordinator: NSObject, Coordinatable {
         }).disposed(by: disposeBag)
         
         viewController.photoListActionObservable.subscribe { (event) in
-            //ToDo - push to photo list
+            let listCoordinator = ListCoordinatror(self.router)
+            listCoordinator.start()
+            self.addChildCoordinator(listCoordinator)
         }.disposed(by: disposeBag)
         
         viewController.nameInputPopupEventObservable.subscribe(onNext: { (alertController) in

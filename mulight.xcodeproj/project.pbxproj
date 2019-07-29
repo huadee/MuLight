@@ -21,6 +21,26 @@
 		9D1AC8B822ECBDCD00DB9F66 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1AC8AE22ECB46900DB9F66 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9D1AC8BA22ECBEF400DB9F66 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1AC8AD22ECB46900DB9F66 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9D1AC8BB22ECBEF400DB9F66 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1AC8AE22ECB46900DB9F66 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9D1FE91622EF258D00D270CB /* ListCoordinatror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1FE91522EF258D00D270CB /* ListCoordinatror.swift */; };
+		9D1FE91822EF259A00D270CB /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1FE91722EF259A00D270CB /* ListViewModel.swift */; };
+		9D1FE91A22EF25A900D270CB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1FE91922EF25A900D270CB /* ListViewController.swift */; };
+		9D1FE91D22EF26AC00D270CB /* ImageDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1FE91C22EF26AC00D270CB /* ImageDetailCoordinator.swift */; };
+		9D1FE91F22EF26C000D270CB /* ImageDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1FE91E22EF26C000D270CB /* ImageDetailViewModel.swift */; };
+		9D1FE92122EF26DE00D270CB /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1FE92022EF26DE00D270CB /* ImageDetailViewController.swift */; };
+		9D1FEAA522EF328A00D270CB /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1FEAA422EF328A00D270CB /* ImageTableViewCell.swift */; };
+		9D1FEB9A22EF4FDE00D270CB /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1FEB9922EF4FDE00D270CB /* CryptoSwift.framework */; };
+		9D1FEB9B22EF4FE500D270CB /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1FEB9922EF4FDE00D270CB /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9D1FEB9C22EF4FF200D270CB /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1FEB9922EF4FDE00D270CB /* CryptoSwift.framework */; };
+		9D1FEB9D22EF4FF800D270CB /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1FEB9922EF4FDE00D270CB /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9D1FEB9E22EF500500D270CB /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1FEB9922EF4FDE00D270CB /* CryptoSwift.framework */; };
+		9D1FEB9F22EF500A00D270CB /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1FEB9922EF4FDE00D270CB /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9D1FEBA122EF710600D270CB /* MockImageServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1FEBA022EF710600D270CB /* MockImageServiceable.swift */; };
+		9D1FEBA522EF726800D270CB /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1FEBA422EF726800D270CB /* HomeViewModelTests.swift */; };
+		9D1FEBA722EF742200D270CB /* MockListViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1FEBA622EF742200D270CB /* MockListViewable.swift */; };
+		9D1FEBA922EF752600D270CB /* ListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1FEBA822EF752600D270CB /* ListViewModelTests.swift */; };
+		9D1FEBAB22EF776300D270CB /* ImageTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1FEBAA22EF776300D270CB /* ImageTableViewCellTests.swift */; };
+		9D1FEBAD22EF788500D270CB /* MockImageDetailViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1FEBAC22EF788500D270CB /* MockImageDetailViewable.swift */; };
+		9D1FEBAF22EF792E00D270CB /* ImageDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1FEBAE22EF792E00D270CB /* ImageDetailViewModelTests.swift */; };
 		9D772ADF22EE7FCB006809AB /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D772ADE22EE7FCB006809AB /* ImageService.swift */; };
 		9D772AE122EE801D006809AB /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D772AE022EE801D006809AB /* ImageModel.swift */; };
 		9D7CB53122EDCD1B00A34141 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7CB53022EDCD1B00A34141 /* HomeCoordinator.swift */; };
@@ -67,6 +87,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9D1FEB9F22EF500A00D270CB /* CryptoSwift.framework in Embed Frameworks */,
 				9D7CB53B22EE06C700A34141 /* RxCocoa.framework in Embed Frameworks */,
 				9D1AC8B722ECBDCD00DB9F66 /* RxSwift.framework in Embed Frameworks */,
 				9D1AC8B822ECBDCD00DB9F66 /* SnapKit.framework in Embed Frameworks */,
@@ -80,6 +101,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9D1FEB9D22EF4FF800D270CB /* CryptoSwift.framework in Embed Frameworks */,
 				9D7CB53922EE06B000A34141 /* RxCocoa.framework in Embed Frameworks */,
 				9D1AC8BA22ECBEF400DB9F66 /* RxSwift.framework in Embed Frameworks */,
 				9D1AC8BB22ECBEF400DB9F66 /* SnapKit.framework in Embed Frameworks */,
@@ -93,6 +115,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9D1FEB9B22EF4FE500D270CB /* CryptoSwift.framework in Embed Frameworks */,
 				9D7CB56022EE0CD300A34141 /* RxCocoa.framework in Embed Frameworks */,
 				9D7CB56122EE0CD300A34141 /* RxSwift.framework in Embed Frameworks */,
 				9D7CB56222EE0CD300A34141 /* SnapKit.framework in Embed Frameworks */,
@@ -115,6 +138,21 @@
 		9D1AC8A022EC42DD00DB9F66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D1AC8AD22ECB46900DB9F66 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		9D1AC8AE22ECB46900DB9F66 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		9D1FE91522EF258D00D270CB /* ListCoordinatror.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoordinatror.swift; sourceTree = "<group>"; };
+		9D1FE91722EF259A00D270CB /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		9D1FE91922EF25A900D270CB /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		9D1FE91C22EF26AC00D270CB /* ImageDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailCoordinator.swift; sourceTree = "<group>"; };
+		9D1FE91E22EF26C000D270CB /* ImageDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewModel.swift; sourceTree = "<group>"; };
+		9D1FE92022EF26DE00D270CB /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
+		9D1FEAA422EF328A00D270CB /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		9D1FEB9922EF4FDE00D270CB /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
+		9D1FEBA022EF710600D270CB /* MockImageServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageServiceable.swift; sourceTree = "<group>"; };
+		9D1FEBA422EF726800D270CB /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		9D1FEBA622EF742200D270CB /* MockListViewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockListViewable.swift; sourceTree = "<group>"; };
+		9D1FEBA822EF752600D270CB /* ListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModelTests.swift; sourceTree = "<group>"; };
+		9D1FEBAA22EF776300D270CB /* ImageTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCellTests.swift; sourceTree = "<group>"; };
+		9D1FEBAC22EF788500D270CB /* MockImageDetailViewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageDetailViewable.swift; sourceTree = "<group>"; };
+		9D1FEBAE22EF792E00D270CB /* ImageDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewModelTests.swift; sourceTree = "<group>"; };
 		9D772ADE22EE7FCB006809AB /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		9D772AE022EE801D006809AB /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		9D7CB53022EDCD1B00A34141 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
@@ -135,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D1FEB9A22EF4FDE00D270CB /* CryptoSwift.framework in Frameworks */,
 				9D7CB53722EE063900A34141 /* RxCocoa.framework in Frameworks */,
 				9D1AC8AF22ECB46900DB9F66 /* RxSwift.framework in Frameworks */,
 				9D1AC8B022ECB46900DB9F66 /* SnapKit.framework in Frameworks */,
@@ -145,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D1FEB9C22EF4FF200D270CB /* CryptoSwift.framework in Frameworks */,
 				9D7CB53822EE06A700A34141 /* RxCocoa.framework in Frameworks */,
 				9D1AC8B222ECB9EA00DB9F66 /* RxSwift.framework in Frameworks */,
 				9D1AC8B322ECB9EA00DB9F66 /* SnapKit.framework in Frameworks */,
@@ -155,6 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D1FEB9E22EF500500D270CB /* CryptoSwift.framework in Frameworks */,
 				9D7CB53A22EE06C000A34141 /* RxCocoa.framework in Frameworks */,
 				9D1AC8B422ECBBC600DB9F66 /* RxSwift.framework in Frameworks */,
 				9D1AC8B522ECBBC600DB9F66 /* SnapKit.framework in Frameworks */,
@@ -192,6 +233,7 @@
 				9D7CB53C22EE072500A34141 /* Base */,
 				9D7CB52F22EDCC2E00A34141 /* Home */,
 				9D1FE91422EF184100D270CB /* List */,
+				9D1FE91B22EF268000D270CB /* ImageDetail */,
 				9D1AC87E22EC42DC00DB9F66 /* AppDelegate.swift */,
 				9D7CB54422EE088800A34141 /* Router.swift */,
 				9D1AC88522EC42DD00DB9F66 /* Assets.xcassets */,
@@ -206,6 +248,10 @@
 			children = (
 				9DA7BDB822EE11C200C57606 /* Mock */,
 				9D7CB54622EE0A0600A34141 /* HomeViewControllerTests.swift */,
+				9D1FEBA422EF726800D270CB /* HomeViewModelTests.swift */,
+				9D1FEBA822EF752600D270CB /* ListViewModelTests.swift */,
+				9D1FEBAA22EF776300D270CB /* ImageTableViewCellTests.swift */,
+				9D1FEBAE22EF792E00D270CB /* ImageDetailViewModelTests.swift */,
 				9D1AC89522EC42DD00DB9F66 /* Info.plist */,
 			);
 			path = mulightTests;
@@ -223,6 +269,7 @@
 		9D1AC8AC22ECB46900DB9F66 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9D1FEB9922EF4FDE00D270CB /* CryptoSwift.framework */,
 				9D7CB53622EE063900A34141 /* RxCocoa.framework */,
 				9D1AC8AD22ECB46900DB9F66 /* RxSwift.framework */,
 				9D1AC8AE22ECB46900DB9F66 /* SnapKit.framework */,
@@ -233,8 +280,22 @@
 		9D1FE91422EF184100D270CB /* List */ = {
 			isa = PBXGroup;
 			children = (
+				9D1FE91522EF258D00D270CB /* ListCoordinatror.swift */,
+				9D1FE91722EF259A00D270CB /* ListViewModel.swift */,
+				9D1FE91922EF25A900D270CB /* ListViewController.swift */,
+				9D1FEAA422EF328A00D270CB /* ImageTableViewCell.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		9D1FE91B22EF268000D270CB /* ImageDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9D1FE91C22EF26AC00D270CB /* ImageDetailCoordinator.swift */,
+				9D1FE91E22EF26C000D270CB /* ImageDetailViewModel.swift */,
+				9D1FE92022EF26DE00D270CB /* ImageDetailViewController.swift */,
+			);
+			path = ImageDetail;
 			sourceTree = "<group>";
 		};
 		9D772ADD22EE7F3A006809AB /* Service */ = {
@@ -279,6 +340,9 @@
 			isa = PBXGroup;
 			children = (
 				9DA7BDB922EE11D700C57606 /* MockHomeViewable.swift */,
+				9D1FEBA622EF742200D270CB /* MockListViewable.swift */,
+				9D1FEBAC22EF788500D270CB /* MockImageDetailViewable.swift */,
+				9D1FEBA022EF710600D270CB /* MockImageServiceable.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -440,14 +504,21 @@
 				9D7CB54522EE088800A34141 /* Router.swift in Sources */,
 				9D772AE122EE801D006809AB /* ImageModel.swift in Sources */,
 				9D1AC87F22EC42DC00DB9F66 /* AppDelegate.swift in Sources */,
+				9D1FEAA522EF328A00D270CB /* ImageTableViewCell.swift in Sources */,
 				9D772ADF22EE7FCB006809AB /* ImageService.swift in Sources */,
 				9D7CB53322EDCD2B00A34141 /* HomeViewModel.swift in Sources */,
 				9D7CB53522EDCD3A00A34141 /* HomeViewController.swift in Sources */,
+				9D1FE91D22EF26AC00D270CB /* ImageDetailCoordinator.swift in Sources */,
+				9D1FE91F22EF26C000D270CB /* ImageDetailViewModel.swift in Sources */,
+				9D1FE91A22EF25A900D270CB /* ListViewController.swift in Sources */,
 				9D7CB53122EDCD1B00A34141 /* HomeCoordinator.swift in Sources */,
 				9DAD960522EE9B1F00291D67 /* CustomError.swift in Sources */,
 				9D7CB54122EE079B00A34141 /* Presentable.swift in Sources */,
+				9D1FE91822EF259A00D270CB /* ListViewModel.swift in Sources */,
 				9D7CB54222EE079B00A34141 /* Coordinatable.swift in Sources */,
+				9D1FE92122EF26DE00D270CB /* ImageDetailViewController.swift in Sources */,
 				9D7CB54322EE079B00A34141 /* Routable.swift in Sources */,
+				9D1FE91622EF258D00D270CB /* ListCoordinatror.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,8 +526,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D1FEBAB22EF776300D270CB /* ImageTableViewCellTests.swift in Sources */,
 				9D7CB54722EE0A0600A34141 /* HomeViewControllerTests.swift in Sources */,
+				9D1FEBA722EF742200D270CB /* MockListViewable.swift in Sources */,
+				9D1FEBA922EF752600D270CB /* ListViewModelTests.swift in Sources */,
 				9DA7BDBA22EE11D700C57606 /* MockHomeViewable.swift in Sources */,
+				9D1FEBAF22EF792E00D270CB /* ImageDetailViewModelTests.swift in Sources */,
+				9D1FEBA122EF710600D270CB /* MockImageServiceable.swift in Sources */,
+				9D1FEBA522EF726800D270CB /* HomeViewModelTests.swift in Sources */,
+				9D1FEBAD22EF788500D270CB /* MockImageDetailViewable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

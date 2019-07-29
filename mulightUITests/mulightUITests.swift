@@ -31,5 +31,17 @@ class mulightUITests: XCTestCase {
         XCTAssertTrue(isDispalyTakePhotoButton, "take photo button success")
         let isDispalyPhotoListButton = app.buttons["photoListButton"].exists
         XCTAssertTrue(isDispalyPhotoListButton, "photo list button success")
+        
+        app.buttons["photoListButton"].tap()
+        let isDispalyListView = app.otherElements["listView"].exists
+        XCTAssertTrue(isDispalyListView, "list view success")
+    }
+    
+    func testListView() {
+        // ToDo - use QUick/Nimble to test the cell selected
+    }
+    
+    func testDetailView() {
+        // ToDo - use QUick/Nimble to test the cell selected
     }
 }

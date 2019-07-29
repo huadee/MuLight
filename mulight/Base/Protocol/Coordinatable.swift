@@ -10,4 +10,15 @@ import Foundation
 
 public protocol Coordinatable: class {
     func start()
+    var childCoordinators: [Coordinatable] { set get }
+}
+
+public extension Coordinatable {
+    func addChildCoordinator(_ coordinator: Coordinatable) {
+        childCoordinators.append(coordinator)
+    }
+    
+    func removeChildCoordinator(_ coordinator: Coordinatable) {
+        childCoordinators = childCoordinators.filter { $0 !== coordinator }
+    }
 }

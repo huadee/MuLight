@@ -47,6 +47,7 @@ class HomeViewController: UIViewController, HomeViewPresentable {
     func setupUI() {
         view.accessibilityIdentifier = "homeView"
         view.backgroundColor = UIColor.white
+        title = "Home View"
         view.addSubview(takePhotoButton)
         takePhotoButton.accessibilityIdentifier = "takePhotoButton"
         takePhotoButton.snp.makeConstraints { (make) in
@@ -115,7 +116,7 @@ extension HomeViewController: UIImagePickerControllerDelegate & UINavigationCont
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true) {
             self.popupNameInput().subscribe(onNext: { (name) in
-                guard let image = info[.originalImage] as? UIImage, let data = image.pngData() else { return }
+                guard let image = info[.originalImage] as? UIImage, let data = image.jpegData(compressionQuality: 0) else { return }
                 self.viewModel.saveImage(data, name).subscribe(onNext: { (_) in
                     // Todo - may need some UI notice
                 }).disposed(by: self.disposeBag)

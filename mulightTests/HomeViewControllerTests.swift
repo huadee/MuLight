@@ -9,6 +9,7 @@
 import XCTest
 @testable import mulight
 
+// ToDo - rewrite with QUick/Nimble
 class HomeViewControllerTests: XCTestCase {
     var homeViewController: HomeViewController!
 
@@ -26,12 +27,5 @@ class HomeViewControllerTests: XCTestCase {
         let button = homeViewController.generateTapButton("this is title")
         XCTAssertEqual(button.titleLabel?.text, "this is title", "generate button is sucess")
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
+    // ToDo - add test and refactor
 }

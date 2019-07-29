@@ -17,7 +17,7 @@ class HomeViewModel: NSObject {
     private let disposeBag = DisposeBag()
     private let imageService: ImageServiceable
     
-    init(_ imageService: ImageServiceable = ImageService()) {
+    init(_ imageService: ImageServiceable = ImageService.sharedInstance) {
         self.imageService = imageService
         super.init()
     }    
